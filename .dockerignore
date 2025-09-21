@@ -1,0 +1,63 @@
+# Git
+.git
+.gitignore
+README.md
+.github/
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache
+.coverage
+htmlcov/
+.tox
+.cache
+.mypy_cache
+*.egg-info
+
+# Environment
+.env
+.env.local
+.env.production
+venv/
+env/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Development files
+docker-compose.override.yml
+.dockerignore
+Dockerfile*
+
+# Test files
+tests/
+coverage.xml
+pytest.ini
+.coveragerc
+
+# Logs
+*.log
+logs/
+
+# Data
+data/
+*.db
+*.sqlite
+
+# Documentation
+docs/
+*.md
+LICENSE

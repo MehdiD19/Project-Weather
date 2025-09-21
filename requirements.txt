@@ -1,0 +1,10 @@
+streamlit
+plotly
+numpy
+requests
+python-dotenv
+scikit-learn
+
+# Testing
+pytest
+pytest-mock
