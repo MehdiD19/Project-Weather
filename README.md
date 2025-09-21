@@ -1,70 +1,97 @@
 # 🌦️ French Weather Analytics
 
-A simple Streamlit app to visualize weather data for French cities.
+A comprehensive weather dashboard for French cities built with Streamlit, providing real-time weather data, forecasts, and comparative analytics.
 
 ## Features
 
-- **Real-time Weather**: Current weather for major French cities
-- **City Comparison**: Compare weather between different cities
-- **5-Day Forecast**: Simple weather forecast visualization
-- **Clean Interface**: Easy to use dashboard
-
-## Project Structure
-
+- **Real-time Weather Data**: Live weather conditions for major French cities
+- **Multi-City Comparison**: Side-by-side weather comparisons with interactive charts
+- **5-Day Forecast**: Detailed weather predictions with temperature trends
+- **Interactive Dashboard**: Clean, responsive interface with dynamic visualizations
 ```
-french-weather-app/
-├── src/
-│   ├── app.py                 # Main Streamlit app
-│   ├── weather_api.py         # Weather API calls
-│   ├── data_processor.py      # Data processing
-│   ├── models.py             # Simple prediction models
-│   └── config.py             # App configuration
-├── tests/
-│   └── unit/                 # Unit tests
-├── requirements.txt          # Dependencies
-├── Dockerfile               # Docker setup
-└── docker-compose.yml       # Docker compose
-```
+### Prerequisites
+- Python 3.8+
+- OpenWeatherMap API key (free at https://openweathermap.org/api)
 
-## Setup
+### Local Installation
 
-1. **Get API Key**
-   - Sign up at https://openweathermap.org/api
-   - Get your free API key
-
-2. **Install**
+1. **Clone and setup environment**
 ```bash
+git clone <repository-url>
+cd Project-Weather
 pip install -r requirements.txt
 ```
 
-3. **Set API Key**
-Create a `.env` file:
-```
+2. **Configure API key**
+Create a `.env` file in the root directory getting inspired by the .env example :
+```env
 OPENWEATHER_API_KEY=your_api_key_here
 ```
 
-4. **Run**
+3. **Launch application**
 ```bash
 streamlit run src/app.py
 ```
 
-### Using Docker
+The app will be available at `http://localhost:8501`
+
+## Docker Deployment
+
+
+### Using Docker directly
 ```bash
-docker-compose up --build
+# Build the image
+docker build -t weather-app .
+
+# Run the container
+docker run -p 8501:8501 --env-file .env weather-app
 ```
 
-## Testing
+Access the application at `http://localhost:8501`
 
-Run tests:
+## Usage
+
+1. **Select Cities**: Choose one or more French cities from the dropdown
+2. **View Current Weather**: See real-time conditions including temperature, humidity, and weather descriptions
+3. **Compare Cities**: Select multiple cities to view comparative weather data
+4. **Forecast Analysis**: Navigate to the forecast section for 5-day predictions
+5. **Interactive Charts**: Hover over charts for detailed information
+
+## Project Structure
+
+```
+Project-Weather/
+├── src/
+│   ├── app.py                 # Main Streamlit application
+│   ├── weather_api.py         # OpenWeatherMap API integration
+│   ├── data_processor.py      # Data processing and formatting
+│   ├── models.py             # Weather prediction models
+│   └── config.py             # Application configuration
+├── tests/
+│   └── unit/                 # Unit test suite
+├── requirements.txt          # Python dependencies
+├── Dockerfile               # Container configuration
+├── docker-compose.yml       # Multi-container setup
+└── .env.example             # Environment variables template
+```
+
+## Development
+
+### Running Tests
 ```bash
+# Run all tests
 pytest tests/
+
 ```
 
-## What I learned
+### Environment Variables
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `OPENWEATHER_API_KEY` | Your OpenWeatherMap API key | Yes |
 
-This project helped me learn:
-- How to use APIs in Python
-- Building web apps with Streamlit
-- Data visualization with Plotly
-- Basic testing with pytest
-- Docker containerization
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
